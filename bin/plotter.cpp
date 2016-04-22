@@ -4,26 +4,22 @@ using namespace std;
 #include "plotter.h"
 
 
-Plotter::Plotter()
-{
+Plotter::Plotter(){
        coordScreen.X = 0;
        coordScreen.Y = 0;
 
        hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
        SetConsoleTextAttribute(hConsoleOutput, green);
-
 }
 
-void Plotter::move(int x, int y)
-{
+void Plotter::move(int x, int y){
        coordScreen.X = x;
        coordScreen.Y = y;
        //SetConsoleTextAttribute(hConsoleOutput, c);
        SetConsoleCursorPosition( hConsoleOutput, coordScreen );
 }
 
-void Plotter::plot(int x, int y, char c)
-{
+void Plotter::plot(int x, int y, char c){
        coordScreen.X = x;
        coordScreen.Y = y;
        //SetConsoleTextAttribute(hConsoleOutput, c);
@@ -32,14 +28,12 @@ void Plotter::plot(int x, int y, char c)
        cout.flush();
 }
 
-void Plotter::setColor(ink c)
-{
+void Plotter::setColor(ink c){
    SetConsoleTextAttribute(hConsoleOutput, c);
 }
 
 
-void Plotter::clear()
-{
+void Plotter::clear(){
   cls( hConsoleOutput );
 }
 
