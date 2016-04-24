@@ -1,0 +1,7 @@
+R = RED
+B = BLUE
+O = BROWN
+W = WHITE
+K = BLACK
+Y = YELLOW
+
