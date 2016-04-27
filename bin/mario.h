@@ -6,7 +6,7 @@
 
 using namespace std;
 
-const int MARIO_HEIGHT = 16, MARIO_WIDTH = 13;
+const int MARIO_HEIGHT = 16, MARIO_WIDTH = 13, JUMP_HEIGHT = 10;
 
 struct Pixel{
     char content;
@@ -27,6 +27,7 @@ public:
     COORD getPosition(int, int);
 
     void draw(string);
+    void jump();
 
 };
 

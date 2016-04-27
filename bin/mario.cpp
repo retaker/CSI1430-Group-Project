@@ -68,3 +68,27 @@ void Mario::draw(string s){
         }
     }
 }
+
+void Mario::jump(){
+    Plotter p = Plotter();
+    for(int n=0;n<JUMP_HEIGHT;n++){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=0;j<MARIO_WIDTH;j++){
+                p.setColor(stand[i][j].color);
+                p.plot(position.X+j,position.Y+i-n,stand[i][j].content);
+            }
+        }
+        Sleep(40);
+        p.clear();
+    }
+    for(int n=JUMP_HEIGHT;n>0;n--){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=0;j<MARIO_WIDTH;j++){
+                p.setColor(stand[i][j].color);
+                p.plot(position.X+j,position.Y+i-n,stand[i][j].content);
+            }
+        }
+        Sleep(30);
+        p.clear();
+    }
+}

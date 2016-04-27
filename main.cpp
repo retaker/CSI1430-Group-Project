@@ -55,7 +55,8 @@ int main(){
     */
     Mario m = Mario();
     int i=0;
-    while(i<2000){
+    m.draw("stand");
+    while(i<50){
         if(i%2==0){
             m.draw("stand");
         }else{
@@ -64,6 +65,8 @@ int main(){
         Sleep(100);
         i++;
     }
+    m.jump();
+    m.draw("stand");
 
     return 0;
 }
