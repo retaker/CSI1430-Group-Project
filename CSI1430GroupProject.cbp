@@ -32,9 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="bin/plotter.cpp">
+		<Unit filename="bin/mario.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="bin/plotter.cpp" />
 		<Unit filename="bin/plotter.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
