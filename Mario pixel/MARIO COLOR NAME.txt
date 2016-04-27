@@ -4,4 +4,6 @@ O = BROWN
 W = WHITE
 K = BLACK
 Y = YELLOW
-
+L = light brown
+N = orange
+G = green
