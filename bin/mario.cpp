@@ -1,22 +1,19 @@
-#include "bin/plotter.h"
-#include "bin/mario.h"
-#include <wincon.h>
-#include <iostream>
+#include "mario.h"
+#include "plotter.h"
 #include <fstream>
+#include <cstdlib>
 
 using namespace std;
 
-int main(){
-/*
-    Pixel p[16][13];
+bool Mario::readIn(string fileName, Pixel p[][MARIO_WIDTH]){
     ifstream file;
     string tmpstr;
-    file.open("Mario pixel/MARIO1.txt");
+    file.open(fileName.c_str());
     if(!file){
-        cout << "ERROR" << endl;
+        return false;
     }
-    for(int i=0;i<16;i++){
-        for(int j=0;j<13;j++){
+    for(int i=0;i<MARIO_HEIGHT;i++){
+        for(int j=0;j<MARIO_WIDTH;j++){
             file >> tmpstr;
             if(tmpstr=="S"){
                 p[i][j].content = ' ';
@@ -42,28 +39,32 @@ int main(){
             }
         }
     }
-
-    Plotter m = Plotter();
-    for(int i=0;i<16;i++){
-        for(int j=0;j<13;j++){
-            m.setColor(p[i][j].color);
-            m.plot(j,i,p[i][j].content);
-        }
-    }
-
     file.close();
-    */
-    Mario m = Mario();
-    int i=0;
-    while(i<2000){
-        if(i%2==0){
-            m.draw("stand");
-        }else{
-            m.draw("walk");
-        }
-        Sleep(100);
-        i++;
-    }
+    return true;
+}
 
-    return 0;
+Mario::Mario(){
+    position.X = 10;
+    position.Y = 10;
+    readIn("Mario pixel/MARIO1.txt",stand);
+    readIn("Mario pixel/MARIO2.txt",walk);
+}
+
+void Mario::draw(string s){
+    Plotter p = Plotter();
+    if(s=="stand"){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=0;j<MARIO_WIDTH;j++){
+                p.setColor(stand[i][j].color);
+                p.plot(position.X+j,position.Y+i,stand[i][j].content);
+            }
+        }
+    }else if(s=="walk"){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=0;j<MARIO_WIDTH;j++){
+                p.setColor(walk[i][j].color);
+                p.plot(position.X+j,position.Y+i,walk[i][j].content);
+            }
+        }
+    }
 }
