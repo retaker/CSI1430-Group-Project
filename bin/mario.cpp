@@ -52,18 +52,32 @@ Mario::Mario(){
 
 void Mario::draw(string s){
     Plotter p = Plotter();
-    if(s=="stand"){
+    if(s=="sr"){
         for(int i=0;i<MARIO_HEIGHT;i++){
             for(int j=0;j<MARIO_WIDTH;j++){
                 p.setColor(stand[i][j].color);
                 p.plot(position.X+j,position.Y+i,stand[i][j].content);
             }
         }
-    }else if(s=="walk"){
+    }else if(s=="wr"){
         for(int i=0;i<MARIO_HEIGHT;i++){
             for(int j=0;j<MARIO_WIDTH;j++){
                 p.setColor(walk[i][j].color);
                 p.plot(position.X+j,position.Y+i,walk[i][j].content);
+            }
+        }
+    }else if(s=="sl"){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=1;j<=MARIO_WIDTH;j++){
+                p.setColor(stand[i][MARIO_WIDTH-j].color);
+                p.plot(position.X+j,position.Y+i,stand[i][MARIO_WIDTH-j].content);
+            }
+        }
+    }else if(s=="wl"){
+        for(int i=0;i<MARIO_HEIGHT;i++){
+            for(int j=1;j<=MARIO_WIDTH;j++){
+                p.setColor(walk[i][MARIO_WIDTH-j].color);
+                p.plot(position.X+j,position.Y+i,walk[i][MARIO_WIDTH-j].content);
             }
         }
     }
